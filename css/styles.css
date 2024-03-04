@@ -1,0 +1,37 @@
+h2 {
+    color: chartreuse;
+}
+
+.minha-classe-1 {
+    color: rgb(79, 7, 147);
+}
+
+.minha-classe-2 {
+    color: goldenrod;
+}
+
+#meu-id-1 {
+    color: red;
+    text-align: center;
+}
+
+#meu-id-2 {
+    color: red;
+    text-align: center;
+}
+
+.background-image {
+    background-image: url("/assets/sapo.jpg");
+    width: 400px;
+    height: 400px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify;
+    font-size: 20px;
+
+letter-spacing: 2px;
+background-position: center;
+background-size: cover;
+opacity: 0.80;
+}
