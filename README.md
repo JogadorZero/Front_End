@@ -25,3 +25,6 @@ Repositório criado para upload dos projetos de Front End
 - Enter
 - Faça o login no github
 - Pronto
+
+### Aula 3
+- Link: http://127.0.0.1:5500/aula2.html
