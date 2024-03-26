@@ -88,7 +88,7 @@ nomes.push('Maria')
 nomes.unshift('Gabriel')
 console.log(nomes)
 */
-
+/*
 const filter_names = nomes.filter((nome) => nome.length === 4)
 console.log(filter_names)
 
@@ -114,3 +114,20 @@ nomes.map((nome) => console.log(nome));
 let numeros = [1, 2, 3]
 const numeros_mapeados = numeros.map((numero) => numero * 2)
 console.log(numeros_mapeados)
+*/
+const aluno = {
+    nome: 'Lucas',
+    matricula: '202311415',
+    email: 'lucas@rodrigues',
+    infos: function(){
+        console.log(`Nome: ${this.nome}\nMatricula: ${this.matricula}`)
+    }
+}
+console.log(aluno)
+
+aluno.nome = 'Lucas'
+aluno.cel = '8989-8989'
+
+console.log(aluno)
+
+aluno.infos()
