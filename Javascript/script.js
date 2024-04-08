@@ -131,3 +131,4 @@ aluno.cel = '8989-8989'
 console.log(aluno)
 
 aluno.infos()
+
