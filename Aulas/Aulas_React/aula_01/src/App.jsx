@@ -1,53 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import IntroComponent from './components/IntroComponent'
-import ChilComponent from './components/ChildComponent'
-import EventComponent from './components/EventComponent'
-import ConditionalComponent1 from './components/ConditionalComponent1'
-import ConditionalComponent2 from './components/ConditionalComponent2'
+import ProductComponent from './components/ProductComponent';
+import ProductTemp from './components/ProductTemp';
+import PostComponent from './components/PostComponent';
 
 
-function App() {
-  const products = [
-    {id: 1, name: 'Limão'},
-    {id: 2, name: 'Kiwi'},
-    {id: 3, name: 'Morango'},
-  ];
-  //PRIMEIRA FORMA
-  const listItems = products.map(product =>
-    <li key = {product.id}>
-      {product.name}
-    </li>);
-    return(
-      <>
-      <ul>{listItems}</ul>
-      {/*SEGUNDA FORMA*/}
-      <ul>
-        {products.map((prod) =>  (
-          <li key = {prod.id} > {prod.name}</li>
-        ))}
-      </ul>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nome</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((prod) => (
-            <tr ket = {prod.id}>
-              <td>{prod.id}</td>
-              <td>{prod.name}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      </>
+function App(){
+  const posts = [
+    {id: 1, title: 'Post 1', description: 'Descrição do Post 1'},
+    {id: 2, title: 'Post 2', description: 'Descrição do Post 2'},
+    {id: 3, title: 'Post 3', description: 'Descrição do Post 3'},
+  ]
+
+  return (
+    <>
+      
+      <div>
+        {posts.map((post) =>
+        <PostComponent key = {post.id} title = {post.title} description = {post.description}/>)}
+      </div>
+    </>
     )
-  }
+}
+
+export default App
 
 
   // let component;
@@ -70,4 +45,4 @@ function App() {
 // )
 
 
-export default App
+
