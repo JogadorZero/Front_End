@@ -2,21 +2,32 @@ import './App.css'
 import ProductComponent from './components/ProductComponent';
 import ProductTemp from './components/ProductTemp';
 import PostComponent from './components/PostComponent';
-
+import Formulario from './components/Formulario';
+import CadastroDeUsuarios from './components/CadastroDeUsuarios';
 
 function App(){
+  
   const posts = [
-    {id: 1, title: 'Post 1', description: 'Descrição do Post 1'},
-    {id: 2, title: 'Post 2', description: 'Descrição do Post 2'},
-    {id: 3, title: 'Post 3', description: 'Descrição do Post 3'},
+    {id: 1, nome: 'Banana', preco: '10', estoque: '34'},
+    {id: 2, nome: 'Ovo', preco: '5', estoque: '65'},
+    {id: 3, nome: 'Uva', preco: '7', estoque: '45'},
   ]
+  const saveForm = (e) => {
+    e.preventDefault();
+    setName("");
+    setPreco("");
+    setEstoque("");
+  }
 
   return (
     <>
-      
+      <Formulario products={posts}/>
       <div>
         {posts.map((post) =>
-        <PostComponent key = {post.id} title = {post.title} description = {post.description}/>)}
+        <PostComponent key = {post.id} nome = {post.nome} preco = {post.preco} estoque = {post.estoque}/>)}
+      </div>
+      <div>
+      <CadastroDeUsuarios/>
       </div>
     </>
     )
@@ -24,7 +35,20 @@ function App(){
 
 export default App
 
+/*
+BACKUP FORMULARIO
+const saveForm = (e) => {
+  e.preventDefault();
+  setName("");
+  setEmail("");
+}
+return(
+  <div className="cor">
+    <CadastroDeUsuarios/>
+      </div>
+)
 
+*/
   // let component;
   //   let condition = false;
   //   if(condition){
