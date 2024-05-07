@@ -73,6 +73,42 @@ function App() {
     clearForm();
     setEdit(false);
   }
+
+const deleteProduct = async(id) => {
+  const res = await fetch(url + `/${id}`, {
+    method: "DELETE",
+    headers: {
+      "content-type": "application/json"
+    },
+  });
+
+  const deleteProduct = await res.json();
+  setProducts(products.filter(prod => prod.id !== deleteProduct.id));
+}
+
+
+
+const handleName = (e) => {setName(e.target.value)}
+const handlePrice = (e) => {setPrice(e.target.value)}
+const handleStock= (e) => {setStock(e.target.value)}
+    
+
+
+
+  return(
+    <>
+      {console.log(products)}
+
+      <div>
+        <Formulario produtos={products} editedProduct={editedProduct} deleteProduct={deleteProduct} />
+        <CadastroDeUsuarios handleName={handleName} handlePrice={handlePrice} handleStock={handleStock} saveProduct={saveProduct} name={name} price={price} stock={stock}/>
+      </div>
+    </>
+  )
+}
+
+export default App
+
   // const saveForm = (e) => {
   //   e.preventDefault();
   //   if(!edit) {
@@ -87,18 +123,6 @@ function App() {
   //   }
   //   clearForm()
 
-const deleteProduct = async(id) => {
-  const res = await fetch(url + `/${id}`, {
-    method: "DELETE",
-    headers: {
-      "content-type": "application/json"
-    },
-  });
-
-  const deleteProduct = await res.json();
-  setProducts(products.filter(prod => prod.id !== deleteProduct.id));
-}
-
 //  const deleteProduct = (id) => {
 //       setProducts(products.filter((prod) => prod.id !== id))
 //     }
@@ -111,26 +135,6 @@ const deleteProduct = async(id) => {
 //       setStock(product.stock)
 //       setEdit(true)
 //     }
-
-const handleName = (e) => {setName(e.target.value)}
-const handlePrice = (e) => {setPrice(e.target.value)}
-const handleStock= (e) => {setStock(e.target.value)}
-    
-
-
-
-  return(
-    <>
-      {console.log(products)}
-      <Formulario produtos={products} editedProduct={editedProduct} deleteProduct={deleteProduct} />
-      <CadastroDeUsuarios handleName={handleName} handlePrice={handlePrice} handleStock={handleStock} saveProduct={saveProduct} name={name} price={price} stock={stock}/>
-      
-    </>
-  )
-}
-
-export default App
-
 /*
 BACKUP FORMULARIO
 const saveForm = (e) => {

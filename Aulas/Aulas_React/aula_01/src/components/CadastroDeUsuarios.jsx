@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-function CadastroDeUsuarios({saveForm, handleName,handlePrice,handleStock, name , price , stock}){
+function CadastroDeUsuarios({saveProduct, handleName,handlePrice,handleStock, name , price , stock}){
   
 
 
@@ -7,7 +7,7 @@ function CadastroDeUsuarios({saveForm, handleName,handlePrice,handleStock, name 
        <>
        <div className="container">
             <h2>Cadastro de Produtos</h2>
-            <form onSubmit={saveForm}>
+            <form onSubmit={saveProduct}>
                 <label for = "nome">Nome:</label>
                 <input type="text" name="nome" value={name} required onChange={(e) => handleName(e)}/>
                 <label for = "preço">Preço:</label>
