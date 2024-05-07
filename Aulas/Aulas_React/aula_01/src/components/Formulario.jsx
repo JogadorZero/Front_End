@@ -1,4 +1,4 @@
-function Formulario({produtos,editedProduct,deleteProduct}) {
+function Formulario({produtos,a,p}) {
    
     return (
         <table>
@@ -17,8 +17,8 @@ function Formulario({produtos,editedProduct,deleteProduct}) {
                         <td>{product.price}</td>
                         <td>{product.stock}</td>
                         <td class="actions">
-                            <button onClick={() => editedProduct(product.id)}>Editar</button>
-                            <button onClick={() => deleteProduct(product.id)}>Excluir</button>
+                            <button onClick={() => a(product.id)}>Editar</button>
+                            <button onClick={() => p(product.id)}>Excluir</button>
                         </td>
                         
                     </tr>

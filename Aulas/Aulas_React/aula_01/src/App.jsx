@@ -1,14 +1,11 @@
 import './App.css'
-import ProductComponent from './components/ProductComponent';
-import ProductTemp from './components/ProductTemp';
-import PostComponent from './components/PostComponent';
 import Formulario from './components/Formulario';
 import CadastroDeUsuarios from './components/CadastroDeUsuarios';
 import {useState, useEffect} from 'react'
 
 function App() {
   const[products, setProducts] = useState ([])
-  const[id, setId] = useState (1)
+  const[id, setId] = useState ("")
   const[name, setName] = useState ("")
   const[price, setPrice] = useState ("")
   const[stock, setStock] = useState ("")
@@ -17,7 +14,7 @@ function App() {
   const url = 'http://localhost:3000/products';
 
   useEffect(() =>{
-    const getProductList = async() => {
+    const getProductsList = async() => {
       const res = await fetch(url);
       const data = await res.json();
       setProducts(data);
@@ -79,7 +76,7 @@ const deleteProduct = async(id) => {
     method: "DELETE",
     headers: {
       "content-type": "application/json"
-    },
+    }
   });
 
   const deleteProduct = await res.json();
@@ -99,9 +96,11 @@ const handleStock= (e) => {setStock(e.target.value)}
     <>
       {console.log(products)}
 
+      <Formulario produtos={products} editedProduct={a} deleteProduct={p} />
+
       <div>
-        <Formulario produtos={products} editedProduct={editedProduct} deleteProduct={deleteProduct} />
-        <CadastroDeUsuarios handleName={handleName} handlePrice={handlePrice} handleStock={handleStock} saveProduct={saveProduct} name={name} price={price} stock={stock}/>
+        <CadastroDeUsuarios handleName={handleName} handlePrice={handlePrice} handleStock={handleStock}
+        saveProduct={saveProduct} name={name} price={price} stock={stock}/>
       </div>
     </>
   )
