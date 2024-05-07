@@ -1,4 +1,5 @@
-function Formulario ({products}) {
+function Formulario({produtos,editedProduct,deleteProduct}) {
+   
     return (
         <table>
             <thead>
@@ -6,28 +7,27 @@ function Formulario ({products}) {
                 <th>Nome</th>
                 <th>Preço</th>
                 <th>Estoque</th>
-                <th>Ações</th>
-            </thead>
+                <th>Acões</th>
+                </thead>
             <tbody>
-                {products.map(product => (
-                    <tr>
+                {produtos.map((product) => (
+                    <tr key={product.id}>
                         <td>{product.id}</td>
-                        <td>{product.nome}</td>
-                        <td>{product.preco}</td>
-                        <td>{product.estoque}</td>
-                        <td>
-                            <tr class="actions">
-                                <button>Editar</button>
-                                <button>Excluir</button>
-                            </tr>
+                        <td>{product.name}</td>
+                        <td>{product.price}</td>
+                        <td>{product.stock}</td>
+                        <td class="actions">
+                            <button onClick={() => editedProduct(product.id)}>Editar</button>
+                            <button onClick={() => deleteProduct(product.id)}>Excluir</button>
                         </td>
+                        
                     </tr>
                 ))}
-
+                
             </tbody>
             
         </table>
     )
 }
-
 export default Formulario
+

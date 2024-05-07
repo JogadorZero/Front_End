@@ -1,24 +1,27 @@
-import React, {useState} from "react"
-export default function CadastroDeUsuarios({saveForm, handleName, handlePreco, handleEstoque, Name, Preco, Estoque}){
-    const [name, setName] = useState("");
-    const [preco, setPreco] = useState("");
-    const [estoque, setEstoque] = useState("");
-    
+import React, { useState } from "react"
+function CadastroDeUsuarios({saveForm, handleName,handlePrice,handleStock, name , price , stock}){
+  
+
+
     return(
-        <>
-        <h3>Cadastro de Produtos</h3>
-        <form onSubmit={saveForm}>
-            <label htmlFor='Nome'>Nome</label>
-            <input type='text' name='Nome' onChange={(e) => setName(e.target.value)}/>
+       <>
+       <div className="container">
+            <h2>Cadastro de Produtos</h2>
+            <form onSubmit={saveForm}>
+                <label for = "nome">Nome:</label>
+                <input type="text" name="nome" value={name} required onChange={(e) => handleName(e)}/>
+                <label for = "preço">Preço:</label>
+                <input type="number" name="preço"  value={price} required onChange={(e) => handlePrice(e)}/>
+                <label for = "estoque">Estoque:</label>
+                <input type="number" name="estoque" value={stock} required onChange={(e) => handleStock(e)}/>
+                <input type="submit" value="Cadastrar"></input>
+            </form>
+        
 
-            <label htmlFor="Preço">Preco</label>
-            <input type="Preço" name="Preço" onChange={(e) => setPreco(e.target.value)}/>
-
-            <label htmlFor="Estoque">Estoque</label>
-            <input type="Estoque" name="Estoque" onChange={(e) => setEstoque(e.target.value)}/>
-
-            <input type="submit" value="Cadastrar" />
-        </form>
-        </>
+       </div>
+       </>
     )
-}
+}   
+
+export default CadastroDeUsuarios
+
